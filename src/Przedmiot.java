@@ -1,4 +1,14 @@
 public class Przedmiot {
-    String nazwa;
-    Nauczyciel nauczyciel;
+    private String nazwa;
+    private Nauczyciel nauczyciel;
+
+    public Przedmiot(String nazwa, Nauczyciel nauczyciel) {
+        this.nazwa = nazwa;
+        this.nauczyciel = nauczyciel;
+    }
+
+    @Override
+    public String toString() {
+        return nazwa;
+    }
 }
