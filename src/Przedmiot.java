@@ -5,6 +5,7 @@ public class Przedmiot {
     public Przedmiot(String nazwa, Nauczyciel nauczyciel) {
         this.nazwa = nazwa;
         this.nauczyciel = nauczyciel;
+        nauczyciel.uczPrzedmiotu(this);
     }
 
     @Override

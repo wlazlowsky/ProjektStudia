@@ -8,7 +8,19 @@ public class Nauczyciel extends Osoba {
         this.nauczanePrzedmioty = new ArrayList<>();
     }
 
+    public ArrayList<Przedmiot> getNauczanePrzedmioty() {
+        return nauczanePrzedmioty;
+    }
+
     void wystawOcene(Przedmiot przedmiot, Student student, int wartosc, int waga) {
         student.addOcena(new Ocena(przedmiot, student, wartosc, waga));
+    }
+
+    void uczPrzedmiotu(Przedmiot przedmiot) {
+        nauczanePrzedmioty.add(przedmiot);
+    }
+
+    void usunOcene(Student student, int index) {
+        student.removeOcena(index);
     }
 }

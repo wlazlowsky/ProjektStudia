@@ -1,5 +1,78 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Dziennik {
+    private ArrayList<Student> studenci;
+    private ArrayList<Nauczyciel> nauczyciele;
+    private ArrayList<Przedmiot> przedmioty;
 
+    public Dziennik() {
+        this.studenci = new ArrayList<>();
+        this.nauczyciele = new ArrayList<>();
+        this.przedmioty = new ArrayList<>();
+    }
+
+    public void dodajStudenta(Student student) {
+        this.studenci.add(student);
+    }
+
+    public void dodajNauczyciela(Nauczyciel nauczyciel) {
+        this.nauczyciele.add(nauczyciel);
+    }
+
+    public void dodajPrzedmiot(Przedmiot przedmiot) {
+        this.przedmioty.add(przedmiot);
+    }
+
+    public void start() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        ArrayList<Ocena> oceny = new ArrayList<>();
+        Student student = new Student("Olaf", "Kaczka");
+        Nauczyciel nauczyciel = new Nauczyciel("Pani", "Jakas");
+        Przedmiot polski = new Przedmiot("Polski", nauczyciel);
+        Przedmiot angielski = new Przedmiot("Angielski", nauczyciel);
+        nauczyciel.wystawOcene(polski, student, 4, 3);
+        nauczyciel.wystawOcene(angielski, student, 2, 2);
+        System.out.println(student.wyswietlOceny());
+        System.out.println(nauczyciel + " uczy:");
+        System.out.println(nauczyciel.getNauczanePrzedmioty());
+        System.out.println();
+        System.out.println();
+
+//        System.out.println(student.wyswietlOceny());
+//
+//        int index = -1;
+//        int maxIndex = (student.getListaOcen().size() - 1);
+//
+//        System.out.println("Ktora ocene studenta: " + student + " chcesz usunac?");
+//        System.out.println("Podaj indeks z zakresu 0 - " + maxIndex);
+//
+//        while (true) {
+//            try {
+//                index = scanner.nextInt();
+//
+//                if (index >= 0 && index <= maxIndex) {
+//                    break;
+//                } else {
+//                    System.out.println("Liczba poza zakresem. Podaj indeks z zakresu 0 - " + maxIndex);
+//                }
+//            } catch (InputMismatchException e) {
+//                System.out.println("Prosze o prawidlowe dane wejsciowe.");
+//                scanner.nextLine();
+//            }
+//        }
+//
+//
+//        nauczyciel.usunOcene(student, index);
+//        System.out.println(student.wyswietlOceny());
+
+        nauczyciel.wystawOcene(polski, student, 5, 1);
+        nauczyciel.wystawOcene(polski, student, 1, 4);
+        nauczyciel.wystawOcene(polski, student, 2, 3);
+        nauczyciel.wystawOcene(polski, student, 2, 2);
+        System.out.println(student.wyswietlOceny());
+        System.out.println(String.format("%.2f", student.obliczSrednia(polski)));
+    }
 }

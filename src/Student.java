@@ -9,15 +9,40 @@ public class Student extends Osoba {
     }
 
     public ArrayList<Ocena> getListaOcen() {
-        System.out.println("Oceny studenta: "+ this);
         return listaOcen;
     }
 
-    public void setListaOcen(ArrayList<Ocena> listaOcen) {
-        this.listaOcen = listaOcen;
+    public String wyswietlOceny() {
+        return "Oceny studenta: " + this + "\n" + listaOcen;
     }
 
     public void addOcena(Ocena ocena) {
         listaOcen.add(ocena);
+    }
+
+    public void removeOcena(int index) {
+        listaOcen.remove(index);
+    }
+
+    public double obliczSrednia(Przedmiot przedmiot) {
+        if (listaOcen.isEmpty()) {
+            return 0.0;
+        }
+
+        double sumaWartosciWazonych = 0;
+        double sumaWag = 0;
+
+        for (Ocena ocena : listaOcen) {
+            if (ocena.getPrzedmiot() == przedmiot) {
+                sumaWartosciWazonych += ocena.getWartosc() * ocena.getWaga();
+                sumaWag += ocena.getWaga();
+            }
+        }
+
+        if (sumaWag == 0) {
+            return 0.0;
+        }
+
+        return sumaWartosciWazonych / sumaWag;
     }
 }
