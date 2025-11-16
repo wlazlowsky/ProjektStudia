@@ -33,7 +33,7 @@ public class Student extends Osoba {
         double sumaWag = 0;
 
         for (Ocena ocena : listaOcen) {
-            if (ocena.getPrzedmiot() == przedmiot) {
+            if (ocena.getPrzedmiot().equals(przedmiot)) {
                 sumaWartosciWazonych += ocena.getWartosc() * ocena.getWaga();
                 sumaWag += ocena.getWaga();
             }

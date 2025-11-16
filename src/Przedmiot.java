@@ -8,6 +8,10 @@ public class Przedmiot {
         nauczyciel.uczPrzedmiotu(this);
     }
 
+    public String getNazwa() {
+        return nazwa;
+    }
+
     @Override
     public String toString() {
         return nazwa;
