@@ -1,11 +1,6 @@
 import java.util.Objects;
 
 public class Ocena {
-    @Override
-    public int hashCode() {
-        return Objects.hash(przedmiot, student, wartosc, waga);
-    }
-
     private Przedmiot przedmiot;
     private Student student;
     private int wartosc;
